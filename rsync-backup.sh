@@ -75,14 +75,17 @@ else
     echo "  DRYRUN=yes $0 | tee backup.log"
     echo "  DRYRUN=no $0"
     echo "  DRYRUN=no POWEROFF=yes $0"
+    echo "  (time DRYRUN=no $0) 2>&1 | tee LOG "
     echo
     exit -1
 fi
 
 if [ "$POWEROFF" == "yes" ]; then
     # wsl or linux ?
-    if grep -q -i microsoft /proc/version; then
-	/mnt/c/Windows/system32/shutdown.exe /s /f /t 0
+    grep -q -i microsoft /proc/version
+
+    if [ 0 == $? ]; then
+	/mnt/c/Windows/system32/shutdown.exe /s /f /t 30
     else
 	poweroff
     fi
