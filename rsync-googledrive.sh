@@ -1,8 +1,8 @@
 #!/bin/bash
 
 DIR=wholeearth-workshop
-SRC=/home/matsuda/workplace/cho-jyu.jp/jigyou/$DIR/
-DST=/mnt/c/Users/matsuda/Google\ Drive/$DIR
+SRC=/home/matsuda/workplace/cho-jyu.jp/ongoing/$DIR/
+DST=/mnt/c/Users/matsuda/Google\ Drive/workplace/$DIR
 
 EXCLUDE=--exclude=`echo $0 | sed 's/.\///'`
 EXCLUDE=$EXCLUDE" "--exclude=*.pptx
@@ -10,8 +10,8 @@ EXCLUDE=$EXCLUDE" "--exclude=*.lnk
 EXCLUDE=$EXCLUDE" "--exclude=qgis
 OPTION=-avz" "--delete" "$EXCLUDE
 
-DATE=`date +%Y%m%d%H%M%S`
-LOGFILE=--log-file=$DATE.log
+# DATE=`date +%Y%m%d%H%M%S`
+# LOGFILE=--log-file=$DATE.log
 
 
 if [ "$DRYRUN" == "no" ]; then
